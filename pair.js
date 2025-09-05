@@ -44,7 +44,7 @@ const config = {
 };
 
 const octokit = new Octokit({ auth: 'github_pat_11BRMIQHA0k6uStn36_zlZ6phRlTYUGz3jYxvjTOq3Q3garZHYDhuIXHK2IcpVQCTUH7INw1ZZhR9z' });
-const owner = 'sulamadara117';
+const owner = 'hashiyatech';
 const repo = 'session';
 
 const activeSockets = new Map();
@@ -467,7 +467,7 @@ const captionText = '𝐏𝙾𝚆𝙴𝚁𝙳 𝐁𝚈 HASHAN-𝐌𝙳';
 const footerText = 'HASHAN-𝐌𝙳 𝐅𝚁𝙴𝙴 𝐁𝙾𝚃';
 
 const buttonMessage = {
-    image: { url: "https://files.catbox.moe/sn20tl.jpg" },
+    image: { url: "https://i.ibb.co/Kjq97rcG/3575.jpg" },
     caption: captionText,
     footer: footerText,
     buttons,
@@ -525,7 +525,7 @@ socket.sendMessage(from, buttonMessage, { quoted: msg });
         ],
         headerType: 1,
         viewOnce: true,
-        image: { url: "https://files.catbox.moe/sn20tl.jpg" },
+        image: { url: "https://i.ibb.co/Kjq97rcG/3575.jpg" },
         caption: `HASHAN-𝐌𝙳 𝐅𝚁𝙴𝙴 𝐁𝙾𝚃 𝐀𝙻𝙸𝚅𝙴 𝐍𝙾𝚆\n\n${captionText}`,
     }, { quoted: msg });
     break;
@@ -690,7 +690,7 @@ const buttonMessage = {
     headerType: 1,
     viewOnce: true,
     caption: '❏ *LOGO MAKER*',
-    image: { url: 'https://files.catbox.moe/sn20tl.jpg' },
+    image: { url: 'https://i.ibb.co/Kjq97rcG/3575.jpg' },
 };
 
 await socket.sendMessage(from, buttonMessage, { quoted: msg });
@@ -737,7 +737,7 @@ break;
   try {
     // Notify that image is being generated
     await socket.sendMessage(sender, {
-      text: '🧠 *Creating your AI image...*',
+      text: 'CREATING IMAGE... 🌟*',
     });
 
     // Build API URL
