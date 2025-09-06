@@ -772,7 +772,75 @@ break;
 
   break;
 }
-              case 'fancy': {
+ 
+//=======================================
+                case 'ping': {     
+                    var inital = new Date().getTime();
+                    let ping = await socket.sendMessage(sender, { text: '*_Pinging to Shanu Module..._* ❗' });
+                    var final = new Date().getTime();
+                    await socket.sendMessage(sender, { text: '《 █▒▒▒▒▒▒▒▒▒▒▒》10%', edit: ping.key });
+                    await socket.sendMessage(sender, { text: '《 ████▒▒▒▒▒▒▒▒》30%', edit: ping.key });
+                    await socket.sendMessage(sender, { text: '《 ███████▒▒▒▒▒》50%', edit: ping.key });
+                    await socket.sendMessage(sender, { text: '《 ██████████▒▒》80%', edit: ping.key });
+                    await socket.sendMessage(sender, { text: '《 ████████████》100%', edit: ping.key });
+
+                    return await socket.sendMessage(sender, {
+                        text: '*Pong '+ (final - inital) + ' Ms*', edit: ping.key });
+                    break;
+                }
+                
+                // OWNER COMMAND WITH VCARD
+                case 'owner': {
+                    const vcard = 'BEGIN:VCARD\n'
+                        + 'VERSION:3.0\n' 
+                        + 'FN:SHALA OWNER\n'
+                        + 'ORG:SHALA OWNER\n'
+                        + 'TEL;type=CELL;type=VOICE;waid=94743281705:+94743281705\n'
+                        + 'EMAIL:shalamd@gmail.com\n'
+                        + 'END:VCARD';
+
+                    await socket.sendMessage(sender, {
+                        contacts: {
+                            displayName: "HACKER YOVI OWNER",
+                            contacts: [{ vcard }]
+                        },
+                        image: { url: config.BUTTON_IMAGES.OWNER },
+                        caption: '*👨‍💻 YOVI BOT OWNER DETAILS*',
+                        buttons: [
+                            { buttonId: `${config.PREFIX}menu`, buttonText: { displayText: '📋 MENU' }, type: 1 },
+                            { buttonId: `${config.PREFIX}alive`, buttonText: { displayText: '🤖 BOT INFO' }, type: 1 }
+                        ]
+                    });     
+                    break;     
+                }
+
+                // SYSTEM COMMAND
+                case 'system': {
+                    const startTime = socketCreationTime.get(number) || Date.now();
+                    const uptime = Math.floor((Date.now() - startTime) / 1000);
+                    const hours = Math.floor(uptime / 3600);
+                    const minutes = Math.floor((uptime % 3600) / 60);
+                    const seconds = Math.floor(uptime % 60);
+                        
+                    const title = '*🥂 𝓴𝓪𝓻𝓶𝓪 𝓜𝓲𝓷𝓲 𝓑𝓸𝓽 𝓢𝔂𝓼𝓽𝓮𝓶 🥂*';
+                    const content = `┏━━━━━━━━━━━━━━━━\n` +
+                        `┃🤖 \`ʙᴏᴛ ɴᴀᴍᴇ\` : ${config.BOT_NAME}\n` +
+                        `┃🔖 \`ᴠᴇʀsɪᴏɴ\` : ${config.BOT_VERSION}\n` +
+                        `┃📡 \`ᴘʟᴀᴛꜰᴏʀᴍ\` : Heroku\n` +
+                        `┃🪢 \`ʀᴜɴᴛɪᴍᴇ\` : ${hours}h ${minutes}m ${seconds}s\n` +
+                        `┃👨‍💻 \`ᴏᴡɴᴇʀ\` : ${config.OWNER_NAME}\n` +
+                        `┗━━━━━━━━━━━━━━━━`;
+                    const footer = config.BOT_FOOTER;
+
+                    await socket.sendMessage(sender, {
+                        image: { url: config.IMAGE_PATH },
+                        caption: formatMessage(title, content, footer)
+                    });
+                    break;
+                }
+                   
+
+             case 'fancy': {
   const axios = require("axios");
 
   const q =
